@@ -11,13 +11,13 @@ export class PageSinConcretoService implements OnModuleInit {
   }
 
   async init() {
-    for (let index = 0; index < 100; index++) {
+    for (let index = 0; index < 1000; index++) {
       this.logger.warn(`Intento de Like #${index + 1}`);
       const isVote = await this.webScraping();
       this.logger.verbose(
         isVote ? `Se consiguio el like` : 'No se consiguio like',
       );
-      await sleep(10);
+      await sleep(1);
     }
   }
 
