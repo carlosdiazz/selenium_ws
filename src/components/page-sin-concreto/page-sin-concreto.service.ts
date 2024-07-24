@@ -11,7 +11,7 @@ export class PageSinConcretoService implements OnModuleInit {
   }
 
   async init() {
-    for (let index = 0; index < 1000; index++) {
+    for (let index = 0; index < 5000; index++) {
       this.logger.warn(`Intento de Like #${index + 1}`);
       const isVote = await this.webScraping();
       this.logger.verbose(
@@ -30,12 +30,12 @@ export class PageSinConcretoService implements OnModuleInit {
       await webDriver.getUrl(
         'https://premiosinconcreto.com/contest/premios-inconcreto/',
       );
-      await sleep(3);
+      await sleep(2);
       const button = await webDriver.buscar_xpath(
         '/html/body/div[1]/div/main/div/div/div/div[2]/ul/li[8]/div/div[5]/form/input[3]',
       );
       button.click();
-      await sleep(6);
+      await sleep(2);
       webDriver.stopDriver();
       return true;
     } catch (e) {
